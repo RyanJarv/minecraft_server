@@ -1,41 +1,51 @@
-# minecraft_server
+# AWS Minecraft Server
 
-1. Install ChefDK
-2. Set up shell environment (will have to close and reopen tab after this). See the ChefDK <a href=https://docs.chef.io/install_dk.html>documentation</a> for more info
+1. Install ChefDK.
+2. Set up shell environment (will have to close and reopen tab after this). See the ChefDK <a href=https://docs.chef.io/install_dk.html>documentation</a> for more info.
 
-```bash
-echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
-```
+  ```bash
+  echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
+  ```
 
-2. Put AWS api key in ~/.aws/config. The format looks like this:
+2. Put AWS api key in ~/.aws/config
 
+  ````
+  [default]
+  aws_access_key_id = XXXXXXXXXXXXXXXX
+  aws_secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXx
+  region = us-east-1
+  ````
 
-...```
-...[default]
-...aws_access_key_id = XXXXXXXXXXXXXXXX
-...aws_secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXx
-...region = us-east-1
-...```
+3. Pull down minecraft cookbook from GitHub.
 
-3. Pull down minecraft cookbook from GitHub
+  ```
+  git submodule init
+  git submodule update
+  ```
 
-..* `git submodule init`
-..* `git submodule update`
+5. Pull down additional cookbooks from the Chef supermarket.
 
-5. Pull down additional cookbooks from the Chef supermarket
+  ```
+  berks vendor
+  ```
 
-..* `berks vendor`
+6. OPTIONAL: Give your self admin access add your username and ssh public key to ./cookbooks/my_minecraft_server/default.rb
 
-6. If you want to add your own ssh key and give your self admin access add your username and ssh public key to ./cookbooks/my_minecraft_server/default.rb like so:
+  ```ruby
+  node.override['admin']['name'] = '<your user name>'
+  node.override['admin']['pub_key'] = '<your ssh public key>'
+  ```
 
-```ruby
-node.override['admin']['name'] = '<your user name>'
-node.override['admin']['pub_key'] = '<your ssh public key>'
-```
+* If you don't have a ssh key you can generate one with `ssh-keygen`. Your public key will be located at ~/.ssh/id_rsa.pub
 
-..* If you don't have a ssh key you can generate one with `ssh-keygen`. Your public key will be located at ~/.ssh/id_rsa.pub
+7. OPTIONAL: Change the AWS node size in ./provisioning/minecraft_server.rb
 
-7. Spin up the server with chef-client
+  ```instance_type: 't2.micro'```
 
-..* `chef-client -z provisioning/minecraft_server.rb`
+  * The t2.micro is free for a period of time on new AWS accounts.
+  * A full list of available instance types can be found <a href=https://aws.amazon.com/ec2/instance-types/>here</a>.
+
+8. Spin up the server with chef-client.
+
+  ```chef-client -z provisioning/minecraft_server.rb```
 
