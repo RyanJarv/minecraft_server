@@ -22,7 +22,6 @@ machine 'minecraft_server' do
                           bootstrap_options: {
                                image_id: 'ami-fce3c696',
                                instance_type: 't2.micro',
-                               key_name: 'minecraft_server',
                                security_group_ids: [my_sg.aws_object.id]
                            }
                        }
