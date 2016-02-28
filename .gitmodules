@@ -1,3 +1,4 @@
 [submodule "cookbooks/minecraft"]
     path = cookbooks/minecraft
-    url = https://github.com/webframp/cookbook-minecraft.git
+    branch = ftb_support
+    url = https://github.com/RyanJarv/cookbook-minecraft.git
