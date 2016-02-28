@@ -1,0 +1,35 @@
+DEPENDENCIES
+  base-server
+    path: cookbooks/base-server
+  minecraft
+    path: cookbooks/minecraft
+  minecraft_server
+    path: .
+    metadata: true
+  my_minecraft_server
+    path: cookbooks/my_minecraft_server
+
+GRAPH
+  apt (2.9.2)
+  base-server (0.1.0)
+    resolvconf (>= 0.0.0)
+  java (1.39.0)
+    apt (>= 0.0.0)
+  minecraft (0.5.2)
+    apt (>= 0.0.0)
+    java (>= 0.0.0)
+    ohai (>= 0.0.0)
+    runit (>= 0.0.0)
+    yum (>= 0.0.0)
+  minecraft_server (0.1.0)
+    my_minecraft_server (>= 0.0.0)
+  my_minecraft_server (0.1.0)
+    base-server (>= 0.0.0)
+    java (>= 0.0.0)
+    minecraft (~> 0.5.2)
+  ohai (2.1.0)
+  packagecloud (0.2.0)
+  resolvconf (0.2.9)
+  runit (1.7.6)
+    packagecloud (>= 0.0.0)
+  yum (3.10.0)
