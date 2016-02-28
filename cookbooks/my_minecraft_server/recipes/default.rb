@@ -21,7 +21,8 @@ include_recipe 'base-server::dns-caching'
 include_recipe 'base-server::misc'
 
 
-## Uncomment the following line to create a bukkit, spigot or ftb server
+## Uncomment the following line to create a vannilla, bukkit, spigot or ftb server
+# node.override['minecraft']['install_type'] = 'vanilla'
 # node.override['minecraft']['install_type'] = 'bukkit'
 # node.override['minecraft']['install_type'] = 'spigot'
 node.override['minecraft']['install_type'] = 'ftb'
