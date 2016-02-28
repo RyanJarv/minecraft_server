@@ -4,7 +4,7 @@ with_driver 'aws::us-east-1'
 
 repo_root = File.expand_path File.join(File.dirname(__FILE__), '..')
 
-with_chef_local_server :chef_repo_path => '/Users/ryangerstenkorn/Code/minecraft_server',
+with_chef_local_server :chef_repo_path => repo_root,
                        :cookbook_path => %W(
                            #{repo_root}/cookbooks
                            #{repo_root}/berks-cookbooks
