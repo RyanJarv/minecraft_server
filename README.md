@@ -34,22 +34,22 @@
   ```chef-client -z provisioning/minecraft_server.rb```
 
 
-##Optional Steps
+###Optional Steps
 
 
-6. Create your own admin account by adding a username and your ssh public key to ./cookbooks/my_minecraft_server/default.rb
+* Create your own admin account by adding a username and your ssh public key to ./cookbooks/my_minecraft_server/default.rb
 
   ```ruby
   node.override['admin']['name'] = '<your user name>'
   node.override['admin']['pub_key'] = '<your ssh public key>'
   ```
 
-* If you don't have a ssh key you can generate one with `ssh-keygen`. Your public key will be located at ~/.ssh/id_rsa.pub
-* If you don't create an account usuing these attributes you can still access the server using the default key at .chef/keys/chef_default with the ubuntu account
+  * If you don't have a ssh key you can generate one with `ssh-keygen`. Your public key will be located at ~/.ssh/id_rsa.pub
+  * If you don't create an account usuing these attributes you can still access the server using the default key at     .chef/keys/chef_default with the ubuntu account
 
-```ssh -i .chef/keys/chef_default -l ubuntu <ip_address>```
+  ```ssh -i .chef/keys/chef_default -l ubuntu <ip_address>```
 
-7. Change the AWS node size in ./provisioning/minecraft_server.rb
+* Change the AWS node size in ./provisioning/minecraft_server.rb
 
   ```instance_type: 't2.medium'```
 
@@ -57,14 +57,14 @@
   * A full list of available instance types can be found <a href=https://aws.amazon.com/ec2/instance-types/>here</a>.
   * If you are creating a FTB server you will need at the very least a t2.small, vanilla will run on a t2.tiny
 
-8. Change the type of minecraft server in ./cookbooks/my_minecraft_server/default.rb
+* Change the type of minecraft server in ./cookbooks/my_minecraft_server/default.rb
 
-```ruby
-# node.override['minecraft']['install_type'] = 'vanilla'
-# node.override['minecraft']['install_type'] = 'bukkit'
-# node.override['minecraft']['install_type'] = 'spigot'
-node.override['minecraft']['install_type'] = 'ftb'
-```
+  ```ruby
+  # node.override['minecraft']['install_type'] = 'vanilla'
+  # node.override['minecraft']['install_type'] = 'bukkit'
+  # node.override['minecraft']['install_type'] = 'spigot'
+  node.override['minecraft']['install_type'] = 'ftb'
+  ```
 
   * Only one type can be selected
 
