@@ -1,0 +1,3 @@
+[submodule "cookbooks/minecraft"]
+    path = cookbooks/minecraft
+    url = https://github.com/webframp/cookbook-minecraft.git

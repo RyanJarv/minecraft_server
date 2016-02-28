@@ -2,6 +2,3 @@ source 'https://supermarket.chef.io'
 
 metadata
 
-cookbook 'minecraft', path: '../minecraft'
-cookbook 'base-server', path: '../base-server'
-

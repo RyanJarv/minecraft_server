@@ -1,39 +1,52 @@
+usr_name = node['admin']['name']
+
 package 'zsh'
 
-group 'ryan' do
+group usr_name do
   gid 1001
 end
 
-user 'ryan' do
+user usr_name do
   action :create
-  group 'ryan'
+  group usr_name
   uid 1001
   shell '/usr/bin/zsh'
-  home '/home/ryan'
+  home "/home/#{usr_name}"
   manage_home true
 end
 
-directory '/home/ryan/.ssh' do
+%w(sudo admin).each do |grp|
+  group grp do
+    append true
+    members usr_name
+  end
+end
+
+
+directory "/home/#{usr_name}/.ssh" do
   mode '0700'
-  owner 'ryan'
-  group 'ryan'
+  owner usr_name
+  group usr_name
 end
 
-cookbook_file '/home/ryan/.ssh/authorized_keys' do
-  source 'authorized_keys'
+file "/home/#{usr_name}/.ssh/authorized_keys" do
+  content node['admin']['pub_key']
   mode '0600'
-  owner 'ryan'
-  group 'ryan'
+  owner usr_name
+  group usr_name
 end
 
-# Needed for oh-my-zsh install
-package 'git'
 
+package 'git' # Needed for oh-my-zsh install
 execute 'oh-my-zsh install' do
-  command 'HOME=/home/ryan sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
-  user 'ryan'
-  group 'ryan'
+  command %Q(HOME=/home/#{usr_name} sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)")
+  user usr_name
+  group usr_name
   ignore_failure true # Meh
-  not_if File::exist? '~ryan/.oh-my-zsh'
+  not_if File::exist? "~#{usr_name}/.oh-my-zsh"
 end
 
+
+file '/etc/sudoers.d/no_passwd' do
+  content "%sudo   ALL=(ALL:ALL) NOPASSWD: ALL\n"
+end
