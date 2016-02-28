@@ -29,7 +29,7 @@
   berks vendor
   ```
 
-6. OPTIONAL: Give your self admin access add your username and ssh public key to ./cookbooks/my_minecraft_server/default.rb
+6. OPTIONAL: Create your own admin account by adding a username and your ssh public key to ./cookbooks/my_minecraft_server/default.rb
 
   ```ruby
   node.override['admin']['name'] = '<your user name>'
@@ -37,6 +37,9 @@
   ```
 
 * If you don't have a ssh key you can generate one with `ssh-keygen`. Your public key will be located at ~/.ssh/id_rsa.pub
+* If you don't create an account usuing these attributes you can still access the server using the default key at .chef/keys/chef_default with the ubuntu account
+
+```ssh -i .chef/keys/chef_default -l ubuntu <ip_address>```
 
 7. OPTIONAL: Change the AWS node size in ./provisioning/minecraft_server.rb
 
