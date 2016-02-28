@@ -19,3 +19,5 @@ berks-cookbooks
 .chef/local-mode-cache/
 .idea
 nodes/
+.chef/keys/
+clients/
