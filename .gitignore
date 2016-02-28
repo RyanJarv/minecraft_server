@@ -16,3 +16,7 @@ bin/*
 .kitchen.local.yml
 
 berks-cookbooks
+
+.chef/local-mode-cache/
+.idea
+nodes/
