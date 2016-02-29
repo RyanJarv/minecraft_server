@@ -1,20 +1,33 @@
 # AWS Minecraft Server
 
-1. Install ChefDK.
-2. Set up shell environment (will have to close and reopen tab after this). See the ChefDK <a href=https://docs.chef.io/install_dk.html>documentation</a> for more info.
+Note: Some of the commands in this readme assume your current working directory is wherever you cloned this repo, you will want to cd to that
+      directory when following this guide. So if you ran `git clone https://github.com/RyanJarv/minecraft_server.git` while you where in your
+      ~/Documents folder then you would want to cd this repo with `cd ~/Documents/minecraft_server`.
 
-  ```bash
-  echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
-  ```
+1. Install the ChefDK, located <a href=https://downloads.chef.io/chef-dk/>here</a>.
+2. Set up chef shell environment. See the ChefDK <a href=https://docs.chef.io/install_dk.html>documentation</a>
+   for more info.
 
-2. Put AWS api key in ~/.aws/config
+  * This command will set up the chef environment for future bash sessions. You will need to close and reopen your
+    terminal after running this.
 
-  ````
-  [default]
-  aws_access_key_id = XXXXXXXXXXXXXXXX
-  aws_secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXx
-  region = us-east-1
-  ````
+    ```bash
+    echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
+    ```
+
+2. Put AWS api key in ~/.aws/credentials and create an empty ~/.aws/config
+
+  * Create the ~/.aws folder with `mkdir ~/.aws`
+
+  * The format of ~/.aws/credentials will look like this, replace the X's with your api info.
+
+      ````
+      [default]
+      aws_access_key_id = XXXXXXXXXXXXXXXX
+      aws_secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXx
+      region = us-east-1
+      ````
+  * Since your api key should be kept secure you can limit access to it by running `chmod o-rwx ~/.aws/credentials`
 
 3. Pull down minecraft cookbook from GitHub.
 
