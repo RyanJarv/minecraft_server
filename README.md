@@ -4,7 +4,9 @@ Some of the commands in this readme assume your current working directory is whe
       directory when following this guide. So if you ran `git clone https://github.com/RyanJarv/minecraft_server.git` while you where in your
       ~/Documents folder then you would want to cd this repo with `cd ~/Documents/minecraft_server`.
       
-This guide assumes you are running on OSX or Linux. I haven't tested it but it should work on Windows as well, you however may have to do some reading to find the equivelent commands on windows. Mainly the ChefDK and AWS setup steps will be different.
+I'm also assumming you are running on OSX or Linux. I haven't tested it but it should work on Windows as well, you however may have to do some reading to find the equivelent commands on windows. Mainly the ChefDK and AWS setup steps will be different.
+
+By default this creates a FTB server which requires the FTB <a href=http://www.feed-the-beast.com/>client</a>, if you want a unmodded minecraft server reade the optional steps below.
 
 1. Install the ChefDK, located <a href=https://downloads.chef.io/chef-dk/>here</a>.
 2. Set up chef shell environment. See the ChefDK <a href=https://docs.chef.io/install_dk.html>documentation</a>
@@ -47,6 +49,9 @@ This guide assumes you are running on OSX or Linux. I haven't tested it but it s
 5. Spin up the server with chef-client.
 
   ```chef-client -z provisioning/minecraft_server.rb```
+  
+6. You should now beable to connect to the server in Minecraft with the public server IP, you can find this in the AWS
+   control panel. If you didn't change the install_type setting below in the optional steps then you will need to use the modified FTB launcher to connect to your server which you can get <a href=http://www.feed-the-beast.com/>here</a>.
 
 
 ###Optional Steps
