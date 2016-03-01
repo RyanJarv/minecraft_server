@@ -50,8 +50,7 @@ By default this creates a FTB server which requires the FTB <a href=http://www.f
 
   ```chef-client -z provisioning/minecraft_server.rb```
   
-6. You should now beable to connect to the server in Minecraft with the public server IP, you can find this in the AWS
-   control panel. If you didn't change the install_type setting below in the optional steps then you will need to use the modified FTB launcher to connect to your server which you can get <a href=http://www.feed-the-beast.com/>here</a>.
+6. When the last command is done running the server will reboot and it can take a while for FTB to start, give it 5 minitues or so and you should now beable to connect to the server with the public server IP in the AWS control panel. If you didn't change the install_type setting below in the optional steps then you will need to use the modified FTB launcher to connect to your server which you can get <a href=http://www.feed-the-beast.com/>here</a>.
 
 
 ###Optional Steps
