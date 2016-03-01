@@ -4,7 +4,7 @@ Some of the commands in this readme assume your current working directory is whe
       directory when following this guide. So if you ran `git clone https://github.com/RyanJarv/minecraft_server.git` while you where in your
       ~/Documents folder then you would want to cd this repo with `cd ~/Documents/minecraft_server`.
       
-This guide assumes you are running on OSX or linux, I haven't tested it but it should work on Windows as well however you may have to do some reading to find the equivelent commands on windows. Mainly the chefdk and aws setup steps will likely be different.
+This guide assumes you are running on OSX or Linux. I haven't tested it but it should work on Windows as well, you however may have to do some reading to find the equivelent commands on windows. Mainly the ChefDK and AWS setup steps will be different.
 
 1. Install the ChefDK, located <a href=https://downloads.chef.io/chef-dk/>here</a>.
 2. Set up chef shell environment. See the ChefDK <a href=https://docs.chef.io/install_dk.html>documentation</a>
