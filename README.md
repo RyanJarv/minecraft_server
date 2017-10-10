@@ -1,5 +1,7 @@
 # AWS Minecraft Server
 
+NOTE!! This was meant to be used for a overview on how to start using Chef but is outdated and contains some poor practices. Will update this when I get a chance.
+
 Some of the commands in this readme assume your current working directory is wherever you cloned this repo, you will want to cd to that
       directory when following this guide. So if you ran `git clone https://github.com/RyanJarv/minecraft_server.git` while you where in your
       ~/Documents folder then you would want to cd this repo with `cd ~/Documents/minecraft_server`.
