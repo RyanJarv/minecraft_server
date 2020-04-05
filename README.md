@@ -1,7 +1,8 @@
-# AWS Minecraft Server
+This was meant to be used for a overview on how to start using Chef but is outdated and contains some poor practices. <s>Will update this when I get a chance.</s>
 
-!!
-**__This was meant to be used for a overview on how to start using Chef but is outdated and contains some poor practices. Will update this when I get a chance.__**
+Edit: This will likely never get updated. The main thing I would do differently now though is use berkshelf (for everything), test-kitchen, chefspec/inspec/serverspec, terraform for provisioning aws, and probably a bunch more stuff, I've written a lot of chef code since whenever I did this.
+
+# AWS Minecraft Server
 
 Some of the commands in this readme assume your current working directory is wherever you cloned this repo, you will want to cd to that
       directory when following this guide. So if you ran `git clone https://github.com/RyanJarv/minecraft_server.git` while you where in your
