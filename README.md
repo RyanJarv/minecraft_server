@@ -1,4 +1,4 @@
-This was meant to be used for a overview on how to start using Chef but is outdated and contains some poor practices. <s>Will update this when I get a chance.</s>
+This was meant to be used for a overview on how to start using Chef but is outdated and contains some (imo) poor practices. <s>Will update this when I get a chance.</s>
 
 Edit: This will likely never get updated. The main thing I would do differently now though is use berkshelf (for everything), test-kitchen, chefspec/inspec/serverspec, terraform for provisioning aws, and probably a bunch more stuff, I've written a lot of chef code since whenever I did this.
 
